@@ -1,0 +1,84 @@
+{
+  "availability-zones:account=533616270150:region=ap-northeast-2": [
+    "ap-northeast-2a",
+    "ap-northeast-2b",
+    "ap-northeast-2c",
+    "ap-northeast-2d"
+  ],
+  "vpc-provider:account=533616270150:filter.tag:Name=vpc-tube-plus-dev:region=ap-northeast-2:returnAsymmetricSubnets=true": {
+    "vpcId": "vpc-0833ff623b5d20e8a",
+    "vpcCidrBlock": "10.0.0.0/16",
+    "ownerAccountId": "533616270150",
+    "availabilityZones": [],
+    "subnetGroups": [
+      {
+        "name": "Ingress",
+        "type": "Public",
+        "subnets": [
+          {
+            "subnetId": "subnet-0843ac5bdedab062b",
+            "cidr": "10.0.0.0/22",
+            "availabilityZone": "ap-northeast-2a",
+            "routeTableId": "rtb-030566c962649f2d2"
+          },
+          {
+            "subnetId": "subnet-003229cabcdaa2240",
+            "cidr": "10.0.4.0/22",
+            "availabilityZone": "ap-northeast-2b",
+            "routeTableId": "rtb-0b0fc4ca872b9ad52"
+          }
+        ]
+      },
+      {
+        "name": "EKS",
+        "type": "Private",
+        "subnets": [
+          {
+            "subnetId": "subnet-0ed10ccb7d62db2bd",
+            "cidr": "10.0.8.0/22",
+            "availabilityZone": "ap-northeast-2a",
+            "routeTableId": "rtb-03183105c661ce1b1"
+          },
+          {
+            "subnetId": "subnet-01ba8025ed29c4c8c",
+            "cidr": "10.0.12.0/22",
+            "availabilityZone": "ap-northeast-2b",
+            "routeTableId": "rtb-0a4edc93ca480a872"
+          }
+        ]
+      },
+      {
+        "name": "RDS",
+        "type": "Isolated",
+        "subnets": [
+          {
+            "subnetId": "subnet-02e3e9544a6355ffb",
+            "cidr": "10.0.16.0/26",
+            "availabilityZone": "ap-northeast-2a",
+            "routeTableId": "rtb-090a646430fd51121"
+          },
+          {
+            "subnetId": "subnet-06c082f1ab6be345e",
+            "cidr": "10.0.16.64/26",
+            "availabilityZone": "ap-northeast-2b",
+            "routeTableId": "rtb-0023ed3c9a8b6aa4d"
+          }
+        ]
+      }
+    ]
+  },
+  "availability-zones:account=940080446303:region=ap-northeast-2": [
+    "ap-northeast-2a",
+    "ap-northeast-2b",
+    "ap-northeast-2c",
+    "ap-northeast-2d"
+  ],
+  "availability-zones:account=533616270150:region=us-east-1": [
+    "us-east-1a",
+    "us-east-1b",
+    "us-east-1c",
+    "us-east-1d",
+    "us-east-1e",
+    "us-east-1f"
+  ]
+}

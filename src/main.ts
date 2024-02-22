@@ -1,23 +1,20 @@
-import { App, Stack, StackProps } from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-
-export class MyStack extends Stack {
-  constructor(scope: Construct, id: string, props: StackProps = {}) {
-    super(scope, id, props);
-
-    // define resources here...
-  }
-}
+import { App } from 'aws-cdk-lib';
+import Config from './common/config';
+import { EksStack } from './stack/eks/eks-stack';
+import VpcStack from './stack/vpc/vpc-stack';
+import PipelineStack from './stack/pipeline/pipeline';
 
 // for development, use account/region from cdk cli
-const devEnv = {
-  account: process.env.CDK_DEFAULT_ACCOUNT,
-  region: process.env.CDK_DEFAULT_REGION,
-};
+const account = process.env.CDK_DEPLOY_ACCOUNT || process.env.CDK_DEFAULT_ACCOUNT;
+const region = process.env.CDK_DEPLOY_REGION || process.env.CDK_DEFAULT_REGION;
 
 const app = new App();
 
-new MyStack(app, 'eks-cdk-dev', { env: devEnv });
-// new MyStack(app, 'eks-cdk-prod', { env: prodEnv });
+const config = new Config();
+const stackCommonProps = { config, env: { account, region } };
+
+new VpcStack(app, 'Vpc', stackCommonProps);
+new EksStack(app, 'Eks', stackCommonProps);
+new PipelineStack(app, 'Pipeline', stackCommonProps);
 
 app.synth();
