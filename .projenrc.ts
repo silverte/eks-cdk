@@ -27,9 +27,12 @@ const project = new awscdk.AwsCdkTypeScriptApp({
     },
   },
 
+  githubOptions: { workflows: false },
+
   deps: ['@aws-cdk/lambda-layer-kubectl-v27', 'yaml'] /* Runtime dependencies of this module. */,
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // devDeps: [],             /* Build dependencies for this module. */
   // packageName: undefined,  /* The "name" in package.json. */
 });
+
 project.synth();
